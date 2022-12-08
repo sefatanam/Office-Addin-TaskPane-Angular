@@ -17,7 +17,7 @@ function action(event: Office.AddinCommands.Event) {
   const message: Office.NotificationMessageDetails = {
     type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
     message: "Performed action.",
-    icon: "Icon.80x80",
+    icon: "blue-icon-80",
     persistent: true,
   };
 

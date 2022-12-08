@@ -49,13 +49,6 @@ module.exports = async (env, options) => {
           exclude: /node_modules/,
           use: "html-loader",
         },
-        {
-          test: /\.(png|jpg|jpeg|gif|ico)$/,
-          type: "asset/resource",
-          generator: {
-            filename: "assets/[name][ext][query]",
-          },
-        },
       ],
     },
     plugins: [
@@ -71,10 +64,6 @@ module.exports = async (env, options) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          {
-            from: "assets/*",
-            to: "assets/[name][ext][query]",
-          },
           {
             from: "manifest*.xml",
             to: "[name]" + "[ext]",
@@ -98,8 +87,6 @@ module.exports = async (env, options) => {
       headers: {
         https: true,
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
       },
       server: {
         type: "https",
